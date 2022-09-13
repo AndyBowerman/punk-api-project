@@ -3,14 +3,14 @@ import './App.scss';
 import Navbar from './Containers/Navbar/Navbar';
 import ShowCase from './Containers/Showcase/Showcase';
 import CardList from './Containers/CardList/CardList';
-import FilterOptions from './Containers/FilterOptions/FilterOptions';
+// import FilterOptions from './Containers/FilterOptions/FilterOptions';
 
 const App = () => {
   return (
     <div className='App'>
       <nav>
         <Navbar />
-        <FilterOptions />
+        {/* <FilterOptions /> */}
       </nav>
       <header>
         <ShowCase />
