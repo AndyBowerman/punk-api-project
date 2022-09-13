@@ -1,9 +1,9 @@
 import React from 'react';
 import './SearchBar.scss';
 
-const SearchBar = () => {
+const SearchBar = ({placeholder, className}) => {
   return (
-    <div>SearchBar</div>
+    <input type="text" placeholder={placeholder} className={className}/>
   )
 }
 
