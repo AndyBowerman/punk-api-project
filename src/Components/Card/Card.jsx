@@ -1,15 +1,21 @@
-import React from 'react';
-import './Card.scss';
+import React from "react";
+import Button from "../Button/Button";
+import "./Card.scss";
 
-const Card = ({id, name, description, img, abv}) => {
+const Card = ({ id, name, description, img, abv }) => {
   return (
-    <div className='card' key={id}>
-      <img src={img} alt="Beer bottle" />
-      <h3>{name}</h3>
-      <p>{description}</p>
-      <p>{abv}</p>
+    <div className="card" key={id}>
+      <div className="card__img-container">
+        <img src={img} alt={name} className="card__img" />
+      </div>      
+      <h3 className="card__header">{name}</h3>
+      <p className="card__description">{description}</p>
+      <div className="card__container">
+        <p className="card__abv">{abv}%</p>
+        <Button buttonText="More Info" className="card__button" />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Card
+export default Card;
