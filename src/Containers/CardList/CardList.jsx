@@ -1,9 +1,15 @@
 import React from 'react';
 import './CardList.scss';
+import Card from '../../Components/Card/Card';
 
-const CardList = () => {
+const CardList = ({beers}) => {
+
+  const beerCards = beers.map(beer => <Card id={beer.id} name={beer.name} img={beer.image_url} description={beer.description} abv={beer.abv}/>)
+  
   return (
-    <div>CardList</div>
+    <div className='cardlist'>
+      {beerCards}
+    </div>
   )
 }
 

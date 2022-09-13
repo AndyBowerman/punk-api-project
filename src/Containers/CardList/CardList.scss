@@ -1,1 +1,9 @@
 @use '../../assets/sass/variables' as *;
+
+.cardlist {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    padding: 50px;
+    background-color: $color-light-grey;
+}

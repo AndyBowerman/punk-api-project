@@ -5,19 +5,21 @@ import ShowCase from './Containers/Showcase/Showcase';
 import CardList from './Containers/CardList/CardList';
 // import FilterOptions from './Containers/FilterOptions/FilterOptions';
 
+import beers from './assets/data/beers'
+
 const App = () => {
   return (
     <div className='App'>
-      <nav>
+      <header>
         <Navbar />
         {/* <FilterOptions /> */}
-      </nav>
-      <header>
-        <ShowCase />
       </header>
       <main>
-        <CardList />
+        <ShowCase />
       </main>
+      <section>
+        <CardList beers={beers} />
+      </section>
     </div>
   )
 }
