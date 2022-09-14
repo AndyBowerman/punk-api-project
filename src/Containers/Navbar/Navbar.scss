@@ -2,13 +2,19 @@
 
 .nav {
     display: flex;
+    flex-direction: column;
     width: 100vw;
-    justify-content: space-around;
-    align-items: center;
     position: fixed;
     z-index: 1;
     background-color: #ffffff;
     box-shadow: rgba(0, 0, 0, 0.6) 0px 5px 15px;
+
+    &__container {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-around;
+    }
 
     &__img {
         height: 70px;

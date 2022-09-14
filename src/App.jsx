@@ -1,24 +1,26 @@
 import './App.scss';
-
+import { useState } from 'react';
 import Navbar from './Containers/Navbar/Navbar';
 import ShowCase from './Containers/Showcase/Showcase';
 import CardList from './Containers/CardList/CardList';
-// import FilterOptions from './Containers/FilterOptions/FilterOptions';
-
-import beers from './assets/data/beers'
 
 const App = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const getSearchTerm = (event) => {
+    setSearchTerm(event.target.value.toLowerCase());
+  }
+
   return (
     <div className='App'>
       <header>
-        <Navbar />
-        {/* <FilterOptions /> */}
+        <Navbar getSearchTerm={getSearchTerm}/>
       </header>
       <main>
         <ShowCase />
       </main>
       <section>
-        <CardList beers={beers} />
+        <CardList searchTerm={searchTerm} />
       </section>
     </div>
   )

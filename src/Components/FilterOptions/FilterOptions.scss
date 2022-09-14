@@ -1,0 +1,15 @@
+@use '../../assets/sass/variables' as *;
+
+.filterOptions {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background-color: $color-dark-grey;
+
+    &__checkbox {
+        margin: 20px;
+        font-size: 19px;
+        color: $color-white;
+    }
+
+}

@@ -1,17 +1,30 @@
-import React from 'react';
-import './Navbar.scss';
-import logo from '../../assets/images/logo.jpg';
-import SearchBar from '../../Components/SearchBar/SearchBar';
-import Button from '../../Components/Button/Button';
+import {useState} from 'react';
+import "./Navbar.scss";
+import logo from "../../assets/images/logo.jpg";
+import SearchBar from "../../Components/SearchBar/SearchBar";
+import Button from "../../Components/Button/Button";
+import FilterOptions from "../../Components/FilterOptions/FilterOptions";
 
-const Navbar = () => {
+const Navbar = ({ getSearchTerm }) => {
+  const [filterMenu, setFilterMenu] = useState(false);
+
+  const revealFilterOptions = () => {
+    setFilterMenu(!filterMenu);
+  }
   return (
-    <nav className='nav'>
-        <img src={logo} alt="Brewdog Logo" className='nav__img' />
-        <SearchBar placeholder="Search our award winning range..." className="nav__searchbar--large" />
-        <Button buttonText="Filter Here" className="nav__filterButton" />
+    <nav className="nav">
+      <div className="nav__container">
+        <img src={logo} alt="Brewdog Logo" className="nav__img" />
+        <SearchBar
+          placeholder="Search our award winning range..."
+          className="nav__searchbar--large"
+          getSearchTerm={getSearchTerm}
+        />
+        <Button buttonText="Filter Here" className="nav__filterButton" revealFilterOptions={revealFilterOptions} />
+      </div>
+      {filterMenu && <FilterOptions />}
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
