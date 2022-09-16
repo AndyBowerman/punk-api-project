@@ -8,16 +8,34 @@
     z-index: 1;
     background-color: #ffffff;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
+    
 
     &__container {
         display: flex;
+        flex-direction: column;
         width: 100%;
         align-items: center;
-        justify-content: space-around;
     }
 
     &__img {
         height: 70px;
         width: auto;
+    }
+
+    &__header {
+        text-align: center;
+        color: $color-black;
+    }
+}
+
+@media screen and (min-width: 560px) {
+    .nav__container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .nav__header {
+        display: none;
     }
 }

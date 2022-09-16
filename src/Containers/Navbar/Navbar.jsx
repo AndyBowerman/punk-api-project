@@ -21,10 +21,11 @@ const Navbar = ({
       <div className="nav__container">
         <img src={logo} alt="Brewdog Logo" className="nav__img" />
         <SearchBar
-          placeholder="Search our award winning range..."
+          placeholder="Search here..."
           className="nav__searchbar--large"
           getSearchTerm={getSearchTerm}
         />
+        <h1 className="nav__header">Discover Our Award Winning Range</h1>
         <Button
           buttonText={!filterMenu ? "Filter Here" : "Hide Filters"}
           className="nav__filterButton"

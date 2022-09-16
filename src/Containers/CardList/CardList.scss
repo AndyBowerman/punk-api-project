@@ -2,8 +2,36 @@
 
 .cardlist {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     grid-gap: 15px;
     padding: 50px;
     background-color: $color-light-grey;
+}
+
+@media screen and (min-width: 585px) {
+    .cardlist {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 860px) {
+    .cardlist {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .cardlist {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (min-width: 1800px) {
+    .cardlist {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+    }
 }
