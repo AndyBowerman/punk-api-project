@@ -1,28 +1,45 @@
-import {useState} from 'react';
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Navbar.scss";
 import logo from "../../assets/images/logo.jpg";
 import SearchBar from "../../Components/SearchBar/SearchBar";
 import Button from "../../Components/Button/Button";
 import FilterOptions from "../../Components/FilterOptions/FilterOptions";
 
-const Navbar = ({ getSearchTerm, getAbvFilter, getBrewedBeforeFilter, getAcidityFilter }) => {
+const Navbar = ({
+  getSearchTerm,
+  getAbvFilter,
+  getBrewedBeforeFilter,
+  getAcidityFilter,
+}) => {
   const [filterMenu, setFilterMenu] = useState(false);
 
   const revealFilterOptions = () => {
     setFilterMenu(!filterMenu);
-  }
+  };
   return (
     <nav className="nav">
       <div className="nav__container">
         <img src={logo} alt="Brewdog Logo" className="nav__img" />
+        <Link to="/">Home</Link>
         <SearchBar
           placeholder="Search our award winning range..."
           className="nav__searchbar--large"
           getSearchTerm={getSearchTerm}
         />
-        <Button buttonText="Filter Here" className="nav__filterButton" revealFilterOptions={revealFilterOptions} />
+        <Button
+          buttonText={!filterMenu ? "Filter Here" : "Hide Filters"}
+          className="nav__filterButton"
+          revealFilterOptions={revealFilterOptions}
+        />
       </div>
-      {filterMenu && <FilterOptions getAbvFilter={getAbvFilter} getBrewedBeforeFilter={getBrewedBeforeFilter} getAcidityFilter={getAcidityFilter} />}
+      {filterMenu && (
+        <FilterOptions
+          getAbvFilter={getAbvFilter}
+          getBrewedBeforeFilter={getBrewedBeforeFilter}
+          getAcidityFilter={getAcidityFilter}
+        />
+      )}
     </nav>
   );
 };

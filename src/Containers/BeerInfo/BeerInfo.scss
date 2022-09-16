@@ -1,0 +1,15 @@
+@use '../../assets/sass/variables' as *;
+
+.beer-info {
+    height: 100vh;
+    background-color: $color-light-grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+
+    &__img {
+        height: 400px;
+        width: auto;
+    }
+}
