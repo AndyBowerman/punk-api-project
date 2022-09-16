@@ -5,7 +5,7 @@
   background-color: $color-white;
 
   &__container {
-    width: 100vw;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -17,7 +17,7 @@
       width: 80%;
       display: flex;
       justify-content: center;
-      background-color: #ffffff;
+      background-color: $color-bright-white;
       border-radius: 10px;
       box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
@@ -35,7 +35,7 @@
       align-items: flex-start;
 
       .beer-info__name {
-        color: #ffffff;
+        color: $color-bright-white;
         width: 100%;
         background-color: $color-dark-grey;
         padding: 10px;
@@ -43,7 +43,7 @@
       }
 
       .beer-info__tagline {
-        background-color: #ffffff;
+        background-color: $color-bright-white;
         width: 100%;
         color: $color-dark-grey;
         padding: 5px;
@@ -61,7 +61,7 @@
 
         .beer-info__foodpairings {
           border: 2px solid $color-light-grey;
-          background-color: #ffffff;
+          background-color: $color-bright-white;
           padding: 10px;
           border-radius: 10px;
 
@@ -103,43 +103,42 @@
 }
 
 @media screen and (min-width: 560px) {
-    .beer-info__left {
-        margin-top: 40px;
+  .beer-info__left {
+    margin-top: 40px;
 
-        .beer-info__img {
-            height: 400px !important;
-            width: auto;
-        }
+    .beer-info__img {
+      height: 400px !important;
+      width: auto;
     }
+  }
 }
 
 @media screen and (min-width: 760px) {
-    .beer-info__container {
-        flex-direction: row;
-        padding: 70px;
+  .beer-info__container {
+    flex-direction: row;
+    padding: 70px;
 
-        .beer-info__left {
-            width: 60%;
-            margin-top: 40px;
-        }
-
-        .beer-info__right {
-            width: 80%;
-        }
+    .beer-info__left {
+      width: 60%;
+      margin-top: 40px;
     }
+
+    .beer-info__right {
+      width: 80%;
+    }
+  }
 }
 
 @media screen and (min-width: 940px) {
-    .beer-info__sm-container {
-        display: flex;
+  .beer-info__sm-container {
+    display: flex;
 
-        .beer-info__foodpairings {
-            width: 65%;
+    .beer-info__foodpairings {
+      width: 65%;
     }
 
-        .beer-info__abv {
-            width: 35%;
-        }
+    .beer-info__abv {
+      width: 35%;
     }
-
+  }
 }

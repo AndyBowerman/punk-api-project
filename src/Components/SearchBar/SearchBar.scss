@@ -1,11 +1,11 @@
-@use '../../assets/sass/variables' as *;
+@use "../../assets/sass/variables" as *;
 
 .nav__searchbar--large {
-    width: 300px;
-    border-radius: 10px;
-    font-size: 17px;
-    background-color: $color-light-grey;
-    border: none;
-    padding: 10px;
-    text-align: center;
+  width: 300px;
+  border-radius: 10px;
+  font-size: 17px;
+  background-color: $color-light-grey;
+  border: none;
+  padding: 10px;
+  text-align: center;
 }

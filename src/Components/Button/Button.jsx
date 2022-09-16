@@ -1,10 +1,12 @@
-import React from 'react';
-import './Button.scss';
+import React from "react";
+import "./Button.scss";
 
-const Button = ({buttonText, className, revealFilterOptions}) => {
+const Button = ({ buttonText, className, revealFilterOptions }) => {
   return (
-    <button className={className} onClick={revealFilterOptions}>{buttonText}</button>
-  )
-}
+    <button className={className} onClick={revealFilterOptions}>
+      {buttonText}
+    </button>
+  );
+};
 
-export default Button
+export default Button;

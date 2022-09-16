@@ -1,22 +1,22 @@
-@use '../../assets/sass/variables' as *;
+@use "../../assets/sass/variables" as *;
 
 .filterOptions {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    justify-content: center;
-    background-color: $color-dark-grey;
-    text-align : center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  background-color: $color-dark-grey;
+  text-align: center;
 
-    &__checkbox {
-        margin: 20px;
-        font-size: 19px;
-        color: $color-white;
-    }
+  &__checkbox {
+    margin: 20px;
+    font-size: 19px;
+    color: $color-white;
+  }
 }
 
 @media screen and (min-width: 480px) {
-    .filterOptions {
-        flex-direction: row;
-    }
+  .filterOptions {
+    flex-direction: row;
+  }
 }

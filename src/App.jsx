@@ -56,8 +56,9 @@ const App = () => {
             path="/beers/:beerId"
             element={
               <main>
-                <BeerInfo beers={beers}/>
-              </main>}
+                <BeerInfo beers={beers} />
+              </main>
+            }
           ></Route>
           <Route
             path="/"

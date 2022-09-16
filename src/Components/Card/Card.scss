@@ -1,47 +1,48 @@
-@use '../../assets/sass/variables' as *;
+@use "../../assets/sass/variables" as *;
 
 .card {
-    background-color: $color-white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: $color-white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
-    &__img-container {
-        width: 100%;
-        display: flex;
-        justify-content: center;
+  &__img-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 
-        .card__img {
-            height: 350px;
-            width: auto;
-        }
+    .card__img {
+      height: 350px;
+      width: auto;
     }
+  }
 
-    &__header {
-        margin: 30px 0;
-    }
+  &__header {
+    margin: 30px 0;
+  }
 
-    &__description {
-        height: 150px;
-    }
+  &__description {
+    height: 150px;
+  }
 
-    &__container {
-        display: flex;
-        width: 100%;
-        justify-content: space-around;
-        align-items: center;
-        
-        .card__abv {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 2px $color-dark-grey solid;
-            color: $color-black;
-            font-weight: bold;
-            font-size: 14px;
-            border-radius: 5px;
-            width: 90px;
-            height: 40px;
-        }
+  &__container {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+
+    .card__abv {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $color-black;
+      color: $color-white;
+      font-weight: bold;
+      font-size: 14px;
+      border-radius: 5px;
+      width: 90px;
+      height: 50px;
+      box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     }
+  }
 }

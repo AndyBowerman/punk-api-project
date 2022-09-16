@@ -1,7 +1,11 @@
 import React from "react";
 import "./FilterOptions.scss";
 
-const FilterOptions = ({ getAbvFilter, getBrewedBeforeFilter, getAcidityFilter }) => {
+const FilterOptions = ({
+  getAbvFilter,
+  getBrewedBeforeFilter,
+  getAcidityFilter,
+}) => {
   return (
     <div className="filterOptions">
       <input
