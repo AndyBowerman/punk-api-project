@@ -2,6 +2,7 @@ import React from "react";
 import "./BeerInfo.scss";
 import { useParams } from "react-router-dom";
 import Button from "../../Components/Button/Button";
+import { Link } from "react-router-dom";
 
 const BeerInfo = ({ beers }) => {
   const { beerId } = useParams();
@@ -36,8 +37,9 @@ const BeerInfo = ({ beers }) => {
           </div>
         </div>
       </div>
-
-      <Button buttonText="Go Home" />
+      <Link to={"/"} className="beer-info__btn-container">
+        <Button buttonText="Home" className="beer-info__button" />
+      </Link>
     </div>
   );
 };

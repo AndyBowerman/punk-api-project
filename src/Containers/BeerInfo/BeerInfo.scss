@@ -1,8 +1,13 @@
 @use '../../assets/sass/variables' as *;
 
+.beer-info {
+    padding-top: 30px;
+    height: 120vh;
+    background-color: $color-white;
+}
+
 .beer-info__container {
     width: 100vw;
-    background-color: $color-white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -90,4 +95,13 @@
             }
         }
     }
+}
+
+.beer-info__btn-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background-color: $color-white;
+    margin: 0;
+    text-decoration: none;
 }

@@ -20,3 +20,14 @@
   width: 90px;
   height: 50px;
 }
+
+.beer-info__button {
+  background-color: #4287f5;
+  border: none;
+  padding: 20px 40px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: $color-white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
