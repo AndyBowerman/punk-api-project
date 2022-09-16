@@ -1,107 +1,145 @@
-@use '../../assets/sass/variables' as *;
+@use "../../assets/sass/variables" as *;
 
 .beer-info {
-    padding-top: 30px;
-    height: 120vh;
-    background-color: $color-white;
-}
+  padding-top: 30px;
+  background-color: $color-white;
 
-.beer-info__container {
+  &__container {
     width: 100vw;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 70px;
-    
-    .beer-info__left {
-        padding: 30px;
-        width: 40%;
-        display: flex;
-        justify-content: center;
-        background-color: #ffffff;
-        border-radius: 10px;
-        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    padding-top: 15px;
 
-        .beer-info__img {
-            height: 400px;
-            width: auto;
-        }
+    .beer-info__left {
+      padding: 30px;
+      width: 80%;
+      display: flex;
+      justify-content: center;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+      .beer-info__img {
+        height: 300px;
+        width: auto;
+      }
     }
 
     .beer-info__right {
-        padding: 50px;
-        width: 60%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+      padding: 50px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
 
-        .beer-info__name {
-            color: #ffffff;
-            width: 100%;
-            background-color: $color-dark-grey;
-            padding: 10px;
-            border-radius: 10px;
-        }
+      .beer-info__name {
+        color: #ffffff;
+        width: 100%;
+        background-color: $color-dark-grey;
+        padding: 10px;
+        border-radius: 10px;
+      }
 
-        .beer-info__tagline {
-            background-color: #ffffff;
-            width: 100%;
-            color: $color-dark-grey;
-            padding: 5px;
-            border-radius: 10px;
+      .beer-info__tagline {
+        background-color: #ffffff;
+        width: 100%;
+        color: $color-dark-grey;
+        padding: 5px;
+        border-radius: 10px;
+        font-style: italic;
+        font-weight: 300;
+      }
+
+      .beer-info__description {
+        font-size: 18px;
+      }
+
+      .beer-info__sm-container {
+        width: 100%;
+
+        .beer-info__foodpairings {
+          border: 2px solid $color-light-grey;
+          background-color: #ffffff;
+          padding: 10px;
+          border-radius: 10px;
+
+          h4 {
             font-style: italic;
-            font-weight: 300;
+          }
+
+          ul li {
+            list-style: armenian;
+          }
         }
 
-        .beer-info__description {
-            font-size: 18px;
+        .beer-info__abv {
+          display: flex;
+          justify-content: center;
+          align-items: center;
 
+          p {
+            font-size: 24px;
+            padding: 14px;
+            border-radius: 10px;
+            background-color: $color-black;
+            color: $color-white;
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 3px 6px,
+              rgba(0, 0, 0, 0.4) 0px 3px 6px;
+          }
         }
+      }
+    }
+  }
 
-        .beer-info__sm-container {
-            display: flex;
-            width: 100%;
+  &__btn-container {
+    display: flex;
+    width: 100%;
+    padding-bottom: 90px;
+    justify-content: center;
+    text-decoration: none;
+  }
+}
 
-            .beer-info__foodpairings {
-                width: 65%;
-                border: 2px solid $color-light-grey;
-                background-color: #ffffff;
-                padding: 10px;
-                border-radius: 10px;
+@media screen and (min-width: 560px) {
+    .beer-info__left {
+        margin-top: 40px;
 
-                h4 {
-                    font-style: italic;
-                }
-
-                ul li {
-                    list-style:armenian;
-                }
-            }
-
-            .beer-info__abv {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 35%;
-
-                p {
-                    font-size: 24px;
-                    padding: 14px;
-                    border-radius: 10px;
-                    background-color: $color-black;
-                    color: $color-white;
-                    box-shadow: rgba(0, 0, 0, 0.4) 0px 3px 6px, rgba(0, 0, 0, 0.4) 0px 3px 6px;
-                }
-            }
+        .beer-info__img {
+            height: 400px !important;
+            width: auto;
         }
     }
 }
 
-.beer-info__btn-container {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    background-color: $color-white;
-    margin: 0;
-    text-decoration: none;
+@media screen and (min-width: 700px) {
+    .beer-info__container {
+        flex-direction: row;
+        padding: 70px;
+
+        .beer-info__left {
+            width: 60%;
+            margin-top: 40px;
+        }
+
+        .beer-info__right {
+            width: 80%;
+        }
+    }
+}
+
+@media screen and (min-width: 940px) {
+    .beer-info__sm-container {
+        display: flex;
+
+        .beer-info__foodpairings {
+            width: 65%;
+    }
+
+        .beer-info__abv {
+            width: 35%;
+        }
+    }
+
 }
