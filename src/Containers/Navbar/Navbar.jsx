@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import "./Navbar.scss";
 import logo from "../../assets/images/logo.jpg";
 import SearchBar from "../../Components/SearchBar/SearchBar";
@@ -21,7 +20,6 @@ const Navbar = ({
     <nav className="nav">
       <div className="nav__container">
         <img src={logo} alt="Brewdog Logo" className="nav__img" />
-        <Link to="/">Home</Link>
         <SearchBar
           placeholder="Search our award winning range..."
           className="nav__searchbar--large"

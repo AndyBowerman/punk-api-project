@@ -1,15 +1,93 @@
 @use '../../assets/sass/variables' as *;
 
-.beer-info {
-    height: 100vh;
-    background-color: $color-light-grey;
+.beer-info__container {
+    width: 100vw;
+    background-color: $color-white;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 60px;
+    padding: 70px;
+    
+    .beer-info__left {
+        padding: 30px;
+        width: 40%;
+        display: flex;
+        justify-content: center;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
-    &__img {
-        height: 400px;
-        width: auto;
+        .beer-info__img {
+            height: 400px;
+            width: auto;
+        }
+    }
+
+    .beer-info__right {
+        padding: 50px;
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        .beer-info__name {
+            color: #ffffff;
+            width: 100%;
+            background-color: $color-dark-grey;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .beer-info__tagline {
+            background-color: #ffffff;
+            width: 100%;
+            color: $color-dark-grey;
+            padding: 5px;
+            border-radius: 10px;
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        .beer-info__description {
+            font-size: 18px;
+
+        }
+
+        .beer-info__sm-container {
+            display: flex;
+            width: 100%;
+
+            .beer-info__foodpairings {
+                width: 65%;
+                border: 2px solid $color-light-grey;
+                background-color: #ffffff;
+                padding: 10px;
+                border-radius: 10px;
+
+                h4 {
+                    font-style: italic;
+                }
+
+                ul li {
+                    list-style:armenian;
+                }
+            }
+
+            .beer-info__abv {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 35%;
+
+                p {
+                    font-size: 24px;
+                    padding: 14px;
+                    border-radius: 10px;
+                    background-color: $color-black;
+                    color: $color-white;
+                    box-shadow: rgba(0, 0, 0, 0.4) 0px 3px 6px, rgba(0, 0, 0, 0.4) 0px 3px 6px;
+                }
+            }
+        }
     }
 }

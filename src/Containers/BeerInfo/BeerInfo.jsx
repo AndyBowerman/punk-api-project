@@ -1,31 +1,45 @@
-import React from 'react';
-import './BeerInfo.scss';
-import { useParams } from 'react-router-dom';
+import React from "react";
+import "./BeerInfo.scss";
+import { useParams } from "react-router-dom";
+import Button from "../../Components/Button/Button";
 
-const BeerInfo = ({beers}) => {
-    const {beerId} = useParams();
-    const currentBeer = beers.filter(beer => beer.id === beerId*1)
-    const foodPairing = currentBeer[0].food_pairing.map(item => <li>{item}</li>)
-    
+const BeerInfo = ({ beers }) => {
+  const { beerId } = useParams();
+  const currentBeer = beers.filter((beer) => beer.id === beerId * 1);
+  const foodPairing = currentBeer[0].food_pairing.map((item, index) => (
+    <li key={index + 1}>{item}</li>
+  ));
+
   return (
-    <div className='beer-info'>
-        <img className='beer-info__img' src={currentBeer[0].image_url} alt={currentBeer[0].name} />
-        <div>
-            <h1 className='beer-info__name'>{currentBeer[0].name}</h1>
-            <h3>{currentBeer[0].tagline}</h3>
-            <p>{currentBeer[0].description}</p>
-            <div>
-                <p>ABV: {currentBeer[0].abv}</p>
-                <h4>Why not try it with:</h4>
-                <ul>
-                    {foodPairing}
-                </ul>
-            </div>
+    <div className="beer-info">
+      <div className="beer-info__container">
+        <div className="beer-info__left">
+          <img
+            className="beer-info__img"
+            src={currentBeer[0].image_url}
+            alt={currentBeer[0].name}
+          />
         </div>
-        
-        
-    </div>
-  )
-}
 
-export default BeerInfo
+        <div className="beer-info__right">
+          <h1 className="beer-info__name">{currentBeer[0].name}</h1>
+          <h3 className="beer-info__tagline">{currentBeer[0].tagline}</h3>
+          <p className="beer-info__description">{currentBeer[0].description}</p>
+          <div className="beer-info__sm-container">
+            <div className="beer-info__foodpairings">
+              <h4>Why not try it with:</h4>
+              <ul>{foodPairing}</ul>
+            </div>
+            <div className="beer-info__abv">
+              <p>ABV: {currentBeer[0].abv}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <Button buttonText="Go Home" />
+    </div>
+  );
+};
+
+export default BeerInfo;
