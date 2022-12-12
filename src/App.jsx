@@ -2,8 +2,9 @@ import "./App.scss";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Navbar from "./Containers/Navbar/Navbar";
-import Home from "./Containers/Home/Home";
-import BeerInfo from "./Containers/BeerInfo/BeerInfo";
+import Home from "./Pages/Home/Home";
+import BeerInfo from "./Pages/BeerInfo/BeerInfo";
+import ReactPaginate from 'react-paginate';
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -14,8 +15,11 @@ const App = () => {
 
   const getBeers = async () => {
     const data = await fetch(
-      `https://api.punkapi.com/v2/beers?page=1&per_page=80`
+      `https://api.punkapi.com/v2/beers?page=1&per_page=25`
     );
+    // 325 beers total
+    // 13 pages 25 long
+    // 5 pages 65 long
     const result = await data.json();
     setBeers(result);
   };
@@ -39,6 +43,15 @@ const App = () => {
     event.target.checked
       ? setAcidityFilter(event.target.value)
       : setAcidityFilter("");
+
+  const handlePageClick = async (page) => {
+    let currentPage = page.selected + 1;
+    console.log(currentPage)
+    const data = await fetch(`https://api.punkapi.com/v2/beers?page=${currentPage}&per_page=25`);
+    const result = await data.json();
+    console.log(result)
+    setBeers(result);
+  }
 
   return (
     <Router>
@@ -76,17 +89,28 @@ const App = () => {
           ></Route>
         </Routes>
       </div>
+
+      <ReactPaginate
+    previousLabel={"previous"}
+    nextLabel={"next"}
+    breakLevel={"..."}
+    pageCount={14}
+    marginPagesDisplayed={2}
+    pageRangeDisplayed={3}
+    onPageChange={handlePageClick}
+    containerClassName={"pagination"}
+    pageClassName={"page-item"}
+    pageLinkClassName={"page-link"}
+    previousClassName={"page-item"}
+    previousLinkClassName={"page-link"}
+    nextClassName={"page-item"}
+    nextLinkClassName={"page-link"}
+    breakLinkClassName={"page-link"}
+    activeClassName={"active"}
+    />
+
     </Router>
   );
 };
 
 export default App;
-
-/*
-
-Questions
-
-1. best way to filter results - pulling the whole lot once so then just filter results or should I be making a new request for each filter?
-2. best practice for styling component - nav__button, reusable component so style in the button scss or the nav scss
-
-*/

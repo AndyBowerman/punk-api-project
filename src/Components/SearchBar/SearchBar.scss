@@ -2,10 +2,15 @@
 
 .nav__searchbar--large {
   width: 300px;
-  border-radius: 10px;
+  border-radius: 5px;
   font-size: 17px;
   background-color: $color-light-grey;
   border: none;
   padding: 10px;
   text-align: center;
+}
+
+.nav__searchbar--large:focus {
+  outline: none;
+  
 }

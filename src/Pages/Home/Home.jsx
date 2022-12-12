@@ -1,6 +1,6 @@
 import "./Home.scss";
-import ShowCase from "../Showcase/Showcase";
-import CardList from "../CardList/CardList";
+import ShowCase from "../../Containers/Showcase/Showcase";
+import CardList from "../../Containers/CardList/CardList";
 
 const Home = ({
   beers,
