@@ -1,0 +1,26 @@
+@use "../../assets/sass/variables" as *;
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__page-item {
+        list-style: none;
+        background-color: $color-black;
+        color: $color-white;
+        width: 75px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        box-shadow: rgba(50, 50, 93, 1) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    }
+
+    &__active {
+        text-decoration: underline;
+    }
+}

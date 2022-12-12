@@ -1,11 +1,25 @@
-const UsePagination = ({totalCount, pageSize, siblingCount=1, currentPage}) => {
-    const paginationRange = useMemo(() => {
+import ReactPaginate from "react-paginate";
+import "./UsePagination.scss";
 
-    }, [totalCount, pageSize, siblingCount, currentPage])
+const UsePagination = ({ handlePageClick }) => {
+  return (
+    <ReactPaginate
+      breakLevel={"..."}
+      pageCount={14}
+      marginPagesDisplayed={1}
+      pageRangeDisplayed={2}
+      onPageChange={handlePageClick}
+      containerClassName={"pagination"}
+      pageClassName={"pagination__page-item"}
+      pageLinkClassName={"pagination__page-item"}
+      previousClassName={"pagination__page-item"}
+      previousLinkClassName={"pagination__page-item"}
+      nextClassName={"pagination__page-item"}
+      nextLinkClassName={"pagination__page-item"}
+      breakLinkClassName={"pagination__page-item"}
+      activeClassName={"pagination__active"}
+    />
+  );
+};
 
-    const totalPageCount = Math.ceil(totalCount / pageSize);
-
-  return paginationRange;
-}
-
-export default UsePagination
+export default UsePagination;
