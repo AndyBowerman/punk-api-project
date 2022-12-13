@@ -59,7 +59,7 @@ const BeerInfo = () => {
             <h4>Brewers Tips:</h4>
             <p>{beer.brewers_tips}</p>
             <div className="beer-info__btn-container">
-              <Link to={"/"}>
+              <Link to={"/punk-api-project"}>
                 <Button
                   buttonText="Return to Beers"
                   className="beer-info__button"

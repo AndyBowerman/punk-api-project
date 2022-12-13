@@ -16,7 +16,7 @@ const App = () => {
             }
           ></Route>
           <Route
-            path="/"
+            path="/punk-api-project"
             element={
               <Home />
             }
