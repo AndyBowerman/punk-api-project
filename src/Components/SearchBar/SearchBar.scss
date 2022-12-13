@@ -1,16 +1,41 @@
 @use "../../assets/sass/variables" as *;
 
-.nav__searchbar--large {
+.search-bar__input {
   width: 300px;
-  border-radius: 5px;
-  font-size: 17px;
+  border-radius: 5px 0px 0px 5px;
+  font-size: 15px;
   background-color: $color-light-grey;
   border: none;
   padding: 10px;
   text-align: center;
 }
 
-.nav__searchbar--large:focus {
+.search-bar__input:focus {
   outline: none;
-  
+}
+
+.search-bar__button {
+  width: 65px;
+  padding: 10px;
+  font-size: 15px;
+  border: none;
+  background-color: $color-blue;
+  color: $color-white;
+
+  &--red {
+    background-color: #d74020;
+    border-radius: 0px 5px 5px 0px;
+  }
+}
+
+@media (max-width: 780px) {
+  .search-bar__input {
+    width: 150px;
+    font-size: 12px;
+  }
+
+  .search-bar__button {
+    font-size: 12px;
+    width: 55px;
+  }
 }

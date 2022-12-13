@@ -1,4 +1,3 @@
-import "./Home.scss";
 import ShowCase from "../../Containers/Showcase/Showcase";
 import CardList from "../../Containers/CardList/CardList";
 import UsePagination from "../../Components/UsePagination/UsePagination";
@@ -7,30 +6,74 @@ import { useState, useEffect } from "react";
 
 const Home = () => {
   const [beers, setBeers] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [abvFilter, setAbvFilter] = useState("");
-  const [brewedBeforeFilter, setBrewedBeforeFilter] = useState(9999);
-  const [acidityFilter, setAcidityFilter] = useState("");
+  const [searchCriteria, setSearchCriteria] = useState({
+    searchTerm: "",
+    abvFilter: "",
+    brewedBeforeFilter: "",
+  });
+  const [pagination, setPagination] = useState(true);
 
-  const getSearchTerm = (event) =>
-    setSearchTerm(event.target.value.toLowerCase());
+  const getSearchTerm = (event) => {
+    event.preventDefault();
+    if (event.target.firstChild.value) {
+      setSearchCriteria({
+        ...searchCriteria,
+        searchTerm: `&beer_name=${event.target.firstChild.value.replace(
+          /\s/g,
+          "_"
+        )}`,
+      });
+      setPagination(false);
+    }
+    event.target.firstChild.value = "";
+  };
 
-  const getAbvFilter = (event) =>
-    event.target.checked ? setAbvFilter(event.target.value) : setAbvFilter("");
+  const getAbvFilter = (event) => {
+    if (event.target.checked) {
+      setSearchCriteria({
+        ...searchCriteria,
+        abvFilter: `&abv_gt=${event.target.value}`,
+      });
+      setPagination(false);
+    } else {
+      setSearchCriteria({ ...searchCriteria, abvFilter: "" });
+      setPagination(true);
+    }
+  };
 
-  const getBrewedBeforeFilter = (event) =>
-    event.target.checked
-      ? setBrewedBeforeFilter(event.target.value * 1)
-      : setBrewedBeforeFilter(9999);
+  const getBrewedBeforeFilter = (event) => {
+    if (event.target.checked) {
+      setSearchCriteria({
+        ...searchCriteria,
+        brewedBeforeFilter: `&brewed_before=01-2010`,
+      });
+      setPagination(false);
+    } else {
+      setSearchCriteria({ ...searchCriteria, brewedBeforeFilter: "" });
+      setPagination(true);
+    }
+  };
 
-  const getAcidityFilter = (event) =>
-    event.target.checked
-      ? setAcidityFilter(event.target.value)
-      : setAcidityFilter("");
+  const resetSearchCriteria = () => {
+    setSearchCriteria({
+      ...searchCriteria,
+      searchTerm: "",
+    });
+    setPagination(true);
+  };
+
+  const resetFilters = () => {
+    setSearchCriteria({
+      ...searchCriteria,
+      abvFilter: "",
+      brewedBeforeFilter: "",
+    });
+    setPagination(true);
+  };
 
   const getBeers = async () => {
     const data = await fetch(
-      `https://api.punkapi.com/v2/beers?page=1&per_page=25`
+      `https://api.punkapi.com/v2/beers?page=1&per_page=80${searchCriteria.searchTerm}${searchCriteria.abvFilter}${searchCriteria.brewedBeforeFilter}`
     );
     const result = await data.json();
     setBeers(result);
@@ -38,12 +81,13 @@ const Home = () => {
 
   useEffect(() => {
     getBeers();
-  }, [searchTerm, abvFilter, brewedBeforeFilter, acidityFilter]);
+    // eslint-disable-next-line
+  }, [searchCriteria]);
 
   const handlePageClick = async (page) => {
     let currentPage = page.selected + 1;
     const data = await fetch(
-      `https://api.punkapi.com/v2/beers?page=${currentPage}&per_page=25`
+      `https://api.punkapi.com/v2/beers?page=${currentPage}&per_page=80${searchCriteria.searchTerm}${searchCriteria.abvFilter}${searchCriteria.brewedBeforeFilter}`
     );
     const result = await data.json();
     setBeers(result);
@@ -55,18 +99,13 @@ const Home = () => {
         getSearchTerm={getSearchTerm}
         getAbvFilter={getAbvFilter}
         getBrewedBeforeFilter={getBrewedBeforeFilter}
-        getAcidityFilter={getAcidityFilter}
+        resetSearchCriteria={resetSearchCriteria}
+        resetFilters={resetFilters}
         homePage={true}
       />
       <ShowCase />
-      <CardList
-        beers={beers}
-        searchTerm={searchTerm}
-        abvFilter={abvFilter}
-        brewedBeforeFilter={brewedBeforeFilter}
-        acidityFilter={acidityFilter}
-      />
-      <UsePagination handlePageClick={handlePageClick} />
+      <CardList beers={beers} />
+      <UsePagination handlePageClick={handlePageClick} display={pagination} />
     </>
   );
 };

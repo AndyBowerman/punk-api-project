@@ -8,7 +8,8 @@
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  box-shadow: rgba(50, 50, 93, 1) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  box-shadow: rgba(50, 50, 93, 1) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .card__button {
@@ -38,6 +39,6 @@
 
 @media screen and (max-width: 560px) {
   .nav__filterButton {
-    margin: 5px;
+    margin-bottom: 10px;
   }
 }

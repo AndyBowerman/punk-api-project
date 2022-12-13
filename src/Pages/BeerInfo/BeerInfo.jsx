@@ -21,6 +21,7 @@ const BeerInfo = () => {
 
   useEffect(() => {
     getBeer();
+    // eslint-disable-next-line
   }, []);
 
   let foodPairing = [];

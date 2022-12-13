@@ -1,11 +1,7 @@
 import React from "react";
 import "./FilterOptions.scss";
 
-const FilterOptions = ({
-  getAbvFilter,
-  getBrewedBeforeFilter,
-  getAcidityFilter,
-}) => {
+const FilterOptions = ({ getAbvFilter, getBrewedBeforeFilter }) => {
   return (
     <div className="filterOptions">
       <input
@@ -29,17 +25,6 @@ const FilterOptions = ({
       />
       <label className="filterOptions__checkbox" htmlFor="classic-range">
         Brewed before 2010
-      </label>
-      <input
-        className="filterOptions__checkbox"
-        type="checkbox"
-        id="high-acidity"
-        name="high-acidity"
-        value="4"
-        onChange={getAcidityFilter}
-      />
-      <label className="filterOptions__checkbox" htmlFor="high-acidity">
-        High Acidity
       </label>
     </div>
   );
