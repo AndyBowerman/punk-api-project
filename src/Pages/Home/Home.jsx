@@ -32,7 +32,6 @@ const Home = () => {
     const data = await fetch(
       `https://api.punkapi.com/v2/beers?page=1&per_page=25`
     );
-    // 325 beers total
     const result = await data.json();
     setBeers(result);
   };
@@ -43,21 +42,22 @@ const Home = () => {
 
   const handlePageClick = async (page) => {
     let currentPage = page.selected + 1;
-    const data = await fetch(`https://api.punkapi.com/v2/beers?page=${currentPage}&per_page=25`);
+    const data = await fetch(
+      `https://api.punkapi.com/v2/beers?page=${currentPage}&per_page=25`
+    );
     const result = await data.json();
     setBeers(result);
-  }
-
+  };
 
   return (
     <>
       <Navbar
-            getSearchTerm={getSearchTerm}
-            getAbvFilter={getAbvFilter}
-            getBrewedBeforeFilter={getBrewedBeforeFilter}
-            getAcidityFilter={getAcidityFilter}
-            homePage={true}
-          />
+        getSearchTerm={getSearchTerm}
+        getAbvFilter={getAbvFilter}
+        getBrewedBeforeFilter={getBrewedBeforeFilter}
+        getAcidityFilter={getAcidityFilter}
+        homePage={true}
+      />
       <ShowCase />
       <CardList
         beers={beers}
@@ -66,7 +66,7 @@ const Home = () => {
         brewedBeforeFilter={brewedBeforeFilter}
         acidityFilter={acidityFilter}
       />
-      <UsePagination handlePageClick={handlePageClick}/>
+      <UsePagination handlePageClick={handlePageClick} />
     </>
   );
 };

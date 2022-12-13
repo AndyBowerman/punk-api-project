@@ -5,7 +5,7 @@ const UsePagination = ({ handlePageClick }) => {
   return (
     <ReactPaginate
       breakLevel={"..."}
-      pageCount={14}
+      pageCount={10}
       marginPagesDisplayed={1}
       pageRangeDisplayed={2}
       onPageChange={handlePageClick}
